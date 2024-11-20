@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" prefHeight="817.0" prefWidth="1046.0" spacing="10" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.jobaifinal.ResumeUploadController">
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+    <stylesheets>
+        <URL value="@styles.css" />
+    </stylesheets>
+
+
+    <HBox alignment="CENTER_RIGHT" />
+
+    <Label styleClass="title-label" text="Resume Upload and Job Search">
+        <font>
+            <Font name="System Bold" size="24.0" />
+        </font>
+    </Label>
+
+    <GridPane hgap="10" styleClass="form-grid" vgap="10">
+        <Label text="Resume File:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="resumePathField" styleClass="input-field" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <Button onAction="#browseForResume" styleClass="secondary-button" text="Browse..." GridPane.columnIndex="2" GridPane.rowIndex="0" />
+
+        <Label text="Preferred Location:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="locationField" styleClass="input-field" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+        <Label text="Experience (years):" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="experienceField" styleClass="input-field" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+        <Button onAction="#searchJobs" styleClass="primary-button" text="Search Jobs" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+        <Button fx:id="logoutButton" onAction="#logout" styleClass="secondary-button" text="Logout" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+      <columnConstraints>
+         <ColumnConstraints />
+         <ColumnConstraints />
+         <ColumnConstraints />
+         <ColumnConstraints />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
+    </GridPane>
+    <TabPane>
+        <Tab text="Job Results">
+            <ScrollPane fitToHeight="true" fitToWidth="true">
+                <FlowPane fx:id="jobsPane" hgap="10" prefHeight="522.0" prefWidth="1006.0" styleClass="jobs-pane" vgap="10" />
+            </ScrollPane>
+        </Tab>
+        <Tab text="Bookmarked Jobs">
+            <ScrollPane fitToHeight="true" fitToWidth="true">
+                <FlowPane fx:id="bookmarkedJobsPane" hgap="10" styleClass="jobs-pane" vgap="10" />
+            </ScrollPane>
+        </Tab>
+
+    </TabPane>
+</VBox>
